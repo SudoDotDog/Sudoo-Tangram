@@ -1,15 +1,16 @@
-
 const path = require('path');
 const ROOT = path.resolve(__dirname, '../');
 const SRC = `${ROOT}/src`;
+
 module.exports = {
-    stories: ['../src/**/*.stories.[tj]sx'],
+    stories: ['../stories/**/*.story.*'],
     addons: [
         '@storybook/addon-storysource',
         '@storybook/addon-docs',
         '@storybook/addon-knobs'
     ],
     webpackFinal: async (config) => {
+
         config.module.rules.push(
             {
                 test: /\.tsx?$/,
