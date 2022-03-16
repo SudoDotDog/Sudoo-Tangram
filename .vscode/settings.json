@@ -1,0 +1,21 @@
+{
+    "cSpell.words": [
+        "bwnl",
+        "capslock",
+        "codecov",
+        "docgen",
+        "docz",
+        "esnext",
+        "mocharc",
+        "RMRF",
+        "splited",
+        "sudoo",
+        "triforce",
+        "tshook",
+        "Unmount",
+        "WMXPY"
+    ],
+    "eslint.options": {
+        "configFile": "./typescript/.eslintrc.json"
+    }
+}
