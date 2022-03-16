@@ -3,7 +3,7 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '../');
 const SRC = `${ROOT}/src`;
 module.exports = {
-    stories: ["../src/**/*.stories.[tj]sx"],
+    stories: ['../src/**/*.stories.[tj]sx'],
     addons: [
         '@storybook/addon-storysource',
         '@storybook/addon-docs',

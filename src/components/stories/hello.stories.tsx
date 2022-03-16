@@ -6,7 +6,7 @@
  */
 
 import * as React from 'react';
-import { Test } from './example';
+import { Test } from '../../example';
 
 export default {
     title: 'Hello',
