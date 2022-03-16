@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-export const Test = () => {
+export const Test = (args) => {
 
-    return <div>123</div>;
+    return <div
+        onClick={() => args.click(1)}
+    >{args.text}</div>;
 };

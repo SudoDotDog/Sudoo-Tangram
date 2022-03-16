@@ -5,9 +5,9 @@ const SRC = `${ROOT}/src`;
 module.exports = {
     stories: ['../stories/**/*.story.*'],
     addons: [
+        "@storybook/addon-essentials",
         '@storybook/addon-storysource',
-        '@storybook/addon-docs',
-        '@storybook/addon-knobs'
+        '@storybook/addon-docs'
     ],
     webpackFinal: async (config) => {
 
@@ -15,17 +15,7 @@ module.exports = {
             {
                 test: /\.tsx?$/,
                 loader: require.resolve('babel-loader'),
-            },
-            {
-                test: /\.stories\.tsx?$/,
-                loaders: [
-                    {
-                        loader: require.resolve('@storybook/source-loader'),
-                        options: { parser: 'typescript' },
-                    },
-                ],
-                enforce: 'pre',
-            },
+            }
         );
 
         config.resolve.extensions.push('.ts', '.tsx');
