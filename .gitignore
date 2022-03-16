@@ -20,6 +20,7 @@ coverage
 # Build
 app
 .docz
+storybook-static
 
 # lock
 yarn.lock

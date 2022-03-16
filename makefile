@@ -19,7 +19,7 @@ main: run
 
 run: 
 	@echo "[INFO] Starting Storybook Environment"
-	@NODE_ENV=development $(start-storybook)
+	@NODE_ENV=development $(start-storybook) -p 9009
 
 story:
 	@echo "[INFO] Building Storybook Page"
