@@ -25,8 +25,8 @@
     "@sudoo/react-force": "^1.10.1",
     "@sudoo/react-force-dev": "^1.10.1",
     "@sudoo/storybook-config": "^1.0.0",
-    "@sudoo/storybook-helper": "^1.0.0",
-    "@sudoo/triforce": "^2.19.2",
+    "@sudoo/storybook-helper": "^1.1.0",
+    "@sudoo/triforce": "^3.0.0",
     "@sudoo/triforce-storybook": "^1.2.0"
   },
   "nyc": {

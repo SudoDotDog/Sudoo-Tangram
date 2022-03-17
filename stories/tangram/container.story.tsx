@@ -12,17 +12,18 @@ import { TangramContainer } from '../../src';
 export default {
   title: 'Tangram/Container',
   component: TangramContainer,
-  argTypes: createArgTypes({
-    size: {
-      type: 'number',
-      control: 'range',
-      description: 'Size of the box',
-      defaultValue: 512,
-      step: 8,
-      min: 64,
-      max: 1024,
+  argTypes: createArgTypes(
+    {
+      style: {
+        type: 'object',
+        description: 'Container Style',
+        defaultValue: {
+          width: '256px',
+        },
+        autoType: true,
+      },
     },
-  }),
+  ),
 }
 
 export const Basic = (props) => {
