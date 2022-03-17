@@ -1,17 +1,17 @@
 /**
  * @author WMXPY
- * @namespace SVG
- * @description Slice
+ * @namespace Tangram
+ * @description Container
  * @override Story
  */
 
 import { createArgTypes } from '@sudoo/storybook-helper';
 import * as React from 'react';
-import { TangramBox } from '../../src';
+import { TangramContainer } from '../../src';
 
 export default {
-  title: 'Tangram/Slice',
-  component: TangramBox,
+  title: 'Tangram/Container',
+  component: TangramContainer,
   argTypes: createArgTypes({
     size: {
       type: 'number',
@@ -25,7 +25,7 @@ export default {
   }),
 }
 
-export const Slice = (props) => {
+export const Basic = (props) => {
 
-  return (<TangramBox {...props} />)
+  return (<TangramContainer {...props} />)
 };
