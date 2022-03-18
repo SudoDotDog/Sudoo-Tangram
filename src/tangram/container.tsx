@@ -5,28 +5,34 @@
  */
 
 import * as React from "react";
-import { PolygonPoint } from "./declare";
+import { TangramControl, TangramFigure, TangramTransform } from "./declare";
 import { TangramSlice } from "./slice";
 import { tangramBigLeftInitial, tangramBigTopInitial, tangramMediumInitial, tangramParallelogramInitial, tangramSmallBottomInitial, tangramSmallCenterInitial, tangramSquareInitial } from "./static";
 
-const slices: PolygonPoint[][] = [
-
-    tangramBigLeftInitial,
-    tangramBigTopInitial,
-    tangramSmallBottomInitial,
-    tangramSquareInitial,
-    tangramSmallCenterInitial,
-    tangramParallelogramInitial,
-    tangramMediumInitial,
-];
-
 export type TangramContainerProps = {
+
+    readonly transform: TangramTransform;
+    readonly figure: TangramFigure;
+    readonly control?: TangramControl;
+
+    readonly safePadding?: number;
 
     readonly className?: string;
     readonly style?: React.CSSProperties;
 };
 
 export const TangramContainer: React.FC<TangramContainerProps> = (props: TangramContainerProps) => {
+
+    const fixedControl: TangramControl = {
+        ...props.control,
+    };
+
+    const viewBox: string[] = typeof props.safePadding === 'number' ? [
+        `-${props.safePadding / 2}`,
+        `-${props.safePadding / 2}`,
+        `${props.safePadding + 64}`,
+        `${props.safePadding + 64}`,
+    ] : ['0', '0', '64', '64'];
 
     return (<div
         className={props.className}
@@ -35,19 +41,50 @@ export const TangramContainer: React.FC<TangramContainerProps> = (props: Tangram
         <svg
             width="100%"
             height="100%"
-            viewBox="0 0 64 64"
-            style={{
-                overflow: "visible",
-            }}
+            viewBox={viewBox.join(" ")}
         >
-            {slices.map((slice: PolygonPoint[], index: number) => {
-                return (<TangramSlice
-
-                    key={index}
-                    color={`hsl(${index * 360 / slices.length}, 100%, 50%)`}
-                    points={slice}
-                />);
-            })}
+            <TangramSlice
+                transform={props.transform.bigLeft}
+                figure={props.figure.bigLeft}
+                control={fixedControl.bigLeft}
+                points={tangramBigLeftInitial}
+            />
+            <TangramSlice
+                transform={props.transform.bigTop}
+                figure={props.figure.bigTop}
+                control={fixedControl.bigTop}
+                points={tangramBigTopInitial}
+            />
+            <TangramSlice
+                transform={props.transform.smallBottom}
+                figure={props.figure.smallBottom}
+                control={fixedControl.smallBottom}
+                points={tangramSmallBottomInitial}
+            />
+            <TangramSlice
+                transform={props.transform.square}
+                figure={props.figure.square}
+                control={fixedControl.square}
+                points={tangramSquareInitial}
+            />
+            <TangramSlice
+                transform={props.transform.smallCenter}
+                figure={props.figure.smallCenter}
+                control={fixedControl.smallCenter}
+                points={tangramSmallCenterInitial}
+            />
+            <TangramSlice
+                transform={props.transform.parallelogram}
+                figure={props.figure.parallelogram}
+                control={fixedControl.parallelogram}
+                points={tangramParallelogramInitial}
+            />
+            <TangramSlice
+                transform={props.transform.medium}
+                figure={props.figure.medium}
+                control={fixedControl.medium}
+                points={tangramMediumInitial}
+            />
         </svg>
     </div>);
 };
